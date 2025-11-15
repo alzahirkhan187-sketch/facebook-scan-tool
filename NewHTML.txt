@@ -1,0 +1,15 @@
+<p><!DOCTYPE html><html lang=&quot;en&quot;> <head>  <meta charset=&quot;UTF-8&quot;>  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>  <title>Facebook Profile Analyzer</title><style>  body {  background: #0d0d0d;  color: #fff;  font-family: Arial;  text-align: center;  padding: 30px;  }  .box {  background: #1a1a1a;  padding: 25px;  border-radius: 12px;  width: 90%;  max-width: 500px;  margin: auto;  box-shadow: 0 0 20px rgba(0,0,0,0.5);  }  input {  width: 90%;  padding: 12px;  border-radius: 8px;  border: none;  margin-bottom: 15px;  font-size: 16px;  }  button {  background: #1a73e8;  border: none;  padding: 12px 20px;  border-radius: 8px;  color: #fff;  font-size: 18px;  cursor: pointer;  }  button:hover {  background: #135fc4;  }  .result {  margin-top: 20px;  background: #111;  padding: 20px;  border-radius: 12px;  text-align: left;  display: none;  } </style></p>
+
+<p></head><body><div class=&quot;box&quot;>  <h2>Facebook Profile Analyzer</h2>  <input type=&quot;text&quot; id=&quot;fbLink&quot; placeholder=&quot;Enter Facebook Profile Link&quot;>  <button onclick=&quot;analyze()&quot;>Analyze</button></p>
+
+<p> <div class=&quot;result&quot; id=&quot;resultBox&quot;>  <h3>Analysis Result:</h3>  <p id=&quot;username&quot;></p>  <p id=&quot;profileId&quot;></p>  <p id=&quot;creation&quot;></p>  <p id=&quot;score&quot;></p>  <br>  <button onclick=&quot;reverseSearch()&quot;>Reverse Image Search</button>  </div> </div></p>
+
+<p><script> function analyze() {  let link = document.getElementById(&quot;fbLink&quot;).value.trim();  let result = document.getElementById(&quot;resultBox&quot;);</p>
+
+<p> if (!link.includes(&quot;facebook.com&quot;)) {  alert(&quot;Please enter a valid Facebook link!&quot;);  return;  }</p>
+
+<p> result.style.display = &quot;block&quot;;</p>
+
+<p> // Extract username or profile ID  let username = link.split(&quot;facebook.com/&quot;)[1].replace(&quot;/&quot;, &quot;&quot;);</p>
+
+<p> document.getElement</p>
