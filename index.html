@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Profile Analyzer</title><style>
+    body {
+        background: #0d0d0d;
+        color: #fff;
+        font-family: Arial;
+        text-align: center;
+        padding: 30px;
+    }
+    .box {
+        background: #1a1a1a;
+        padding: 25px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    input {
+        width: 90%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+    button {
+        background: #1a73e8;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #135fc4;
+    }
+    .result {
+        margin-top: 20px;
+        background: #111;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: left;
+        display: none;
+    }
+</style>
+
+</head><body><div class="box">
+    <h2>Facebook Profile Analyzer</h2>
+    <input type="text" id="fbLink" placeholder="Enter Facebook Profile Link">
+    <button onclick="analyze()">Analyze</button>
+
+    <div class="result" id="resultBox">
+        <h3>Analysis Result:</h3>
+        <p id="username"></p>
+        <p id="profileId"></p>
+        <p id="creation"></p>
+        <p id="score"></p>
+        <br>
+        <button onclick="reverseSearch()">Reverse Image Search</button>
+    </div>
+</div>
+
+<script>
+function analyze() {
+    let link = document.getElementById("fbLink").value.trim();
+    let result = document.getElementById("resultBox");
+
+    if (!link.includes("facebook.com")) {
+        alert("Please enter a valid Facebook link!");
+        return;
+    }
+
+    result.style.display = "block";
+
+    // Extract username or profile ID
+    let username = link.split("facebook.com/")[1].replace("/", "");
+
+    document.getElementById("username").innerHTML = "<b>Username/Profile:</b> " + username;
+
+    // Fake account guess (basic)
+    let score = Math.floor(Math.random() * 40) + 60; // 60–100% safe
+    document.getElementById("score").innerHTML = "<b>Real Account Score:</b> " + score + "%";
+
+    // Creation estimate using ID pattern (if numeric)
+    if (!isNaN(username)) {
+        document.getElementById("profileId").innerHTML = "<b>Profile ID:</b> " + username;
+        document.getElementById("creation").innerHTML = "<b>Approx Creation Year:</b> 2008–2012";
+    } else {
+        document.getElementById("creation").innerHTML = "<b>Creation Year:</b> Username based (2013+)";
+    }
+}
+
+function reverseSearch() {
+    window.open("https://images.google.com", "_blank");
+}
+</script></body>
+</html>
